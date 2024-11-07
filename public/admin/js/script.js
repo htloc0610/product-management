@@ -147,3 +147,36 @@ if (showAlert) {
   });
 }
 // End Show Alert
+
+//Sort Method
+const sortBtn = document.querySelector("[sort-search]");
+if (sortBtn) {
+  const sortSelect = document.querySelector("[sort-select]");
+  if (sortSelect) {
+    let url = new URL(window.location.href);
+    sortBtn.addEventListener("click", () => {
+      const [data, type] = sortSelect.value.toString().split("-");
+      if (data && type) {
+        url.searchParams.set("data", data);
+        url.searchParams.set("type", type);
+      } else {
+        url.searchParams.delete("data");
+        url.searchParams.delete("type");
+      }
+      window.location.href = url;
+    });
+  }
+}
+// End Sort Method
+
+//Sort Clear
+const sortClearBtn = document.querySelector("[sort-clear]");
+if (sortClearBtn) {
+  let url = new URL(window.location.href);
+  sortClearBtn.addEventListener("click", () => {
+    url.searchParams.delete("data");
+    url.searchParams.delete("type");
+    window.location.href = url;
+  });
+}
+// End Sort Clear

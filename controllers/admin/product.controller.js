@@ -26,6 +26,20 @@ module.exports.index = async (req, res) => {
   }
   // End Find
 
+  // Sort
+  let sort = {
+    type: "desc",
+    data: "title",
+  };
+
+  if (req.query.type) {
+    sort.type = req.query.type;
+  }
+
+  if (req.query.data) {
+    sort.data = req.query.data;
+  }
+
   // Pagination
   const countProducts = await Product.countDocuments(find);
   const objectPagination = paginationHelper(
@@ -38,7 +52,7 @@ module.exports.index = async (req, res) => {
   );
 
   const products = await Product.find(find)
-    .sort({ position: "desc" })
+    .sort({ [sort.data]: sort.type })
     .limit(objectPagination.limitItems)
     .skip(objectPagination.skip);
 
