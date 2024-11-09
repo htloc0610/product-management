@@ -9,7 +9,7 @@ const upload = multer();
 const validate = require("../../validates/admin/product.validate");
 const controller = require("../../controllers/admin/product.controller");
 
-const uploadClond = require("../../middlewares/admin/uploadClound.middlewares");
+const uploadClound = require("../../middlewares/admin/uploadClound.middlewares");
 
 router.get("/", controller.index);
 
@@ -23,7 +23,7 @@ router.get("/create", controller.create);
 router.post(
   "/create",
   upload.single("thumbnail"),
-  uploadClond.upload,
+  uploadClound.upload,
   validate.createPost,
   controller.createPost
 );

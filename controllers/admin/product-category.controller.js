@@ -7,3 +7,9 @@ module.exports.index = (req, res) => {
 module.exports.create = (req, res) => {
   res.render("admin/pages/products-category/create.pug");
 };
+
+// [POST] /admin/products-category/create
+module.exports.createPost = (req, res) => {
+  console.log(req.body);
+  res.send("OK");
+};
