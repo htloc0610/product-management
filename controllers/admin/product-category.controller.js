@@ -2,8 +2,16 @@ const ProductCategory = require("../../models/product-category.model");
 const systemConfig = require("../../config/system");
 
 // [GET] /admin/products-category
-module.exports.index = (req, res) => {
-  res.render("admin/pages/products-category/index.pug");
+module.exports.index = async (req, res) => {
+  let find = {
+    deleted: false,
+  };
+
+  const records = await ProductCategory.find(find);
+
+  res.render("admin/pages/products-category/index.pug", {
+    records: records,
+  });
 };
 
 // [GET] /admin/products-category/create
