@@ -1,0 +1,28 @@
+extends ../../layouts/default.pug
+
+block main
+
+    h1(class="mb-4") Chi tiết sản phẩm
+
+    //- ! Hiển thị mã html
+    div(class="form-group")
+        label(class="form-label font-weight-bold mb-2") Tiêu đề:
+        p(class="form-control-plaintext") #{product.title}
+    div(class="form-group")
+        label(class="form-label font-weight-bold mb-2") Mô tả:
+        p(class="form-control-plaintext") !{product.description}
+    div(class="form-group")
+        label(class="form-label font-weight-bold mb-2") Ảnh:
+        br
+        img(
+            src= product.thumbnail 
+            class="img-thumbnail image-preview"
+        )
+    div(class="form-group")
+        label(class="form-label font-weight-bold mb-2") Vị trí:
+        p(class="form-control-plaintext") #{product.position}
+
+    div(class="form-group")
+        label(class="form-label font-weight-bold mb-2") Trạng thái:
+        p(class="form-control-plaintext") #{product.status === "active" ? "Hoạt động" : "Dừng hoạt động"}
+

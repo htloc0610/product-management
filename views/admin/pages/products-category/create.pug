@@ -23,12 +23,16 @@ block main
 
         div(class="form-group")
             label(for="parent_id") Danh mục cha
-            input(
-                type="text"
-                class="form-control"
-                id="parent_id"
+            select(
+                class="form-control" 
+                id="parent_id" 
                 name="parent_id"
             )
+                option(value="") Chọn danh mục cha
+                if (records)
+                    each record in records
+                        option(value=record.id) #{record.title}
+
 
         div(class="form-group")
             label(for="desc") Mô tả
