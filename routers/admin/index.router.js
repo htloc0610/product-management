@@ -3,6 +3,7 @@ const productRouters = require("./product.router");
 const roleRouters = require("./role.router");
 const productsCategoryRouters = require("./products-category.router");
 const accountsRouters = require("./accounts.router");
+const authRouters = require("./auth.router");
 const systemConfig = require("../../config/system");
 
 module.exports = (app) => {
@@ -15,4 +16,5 @@ module.exports = (app) => {
   );
   app.use(systemConfig.prefixAdmin + "/roles", roleRouters);
   app.use(systemConfig.prefixAdmin + "/accounts", accountsRouters);
+  app.use(systemConfig.prefixAdmin + "/auth", authRouters);
 };
