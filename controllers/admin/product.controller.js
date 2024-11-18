@@ -202,11 +202,18 @@ module.exports.editPatch = async (req, res) => {
     if (req.file) {
       req.body.thumbnail = `/uploads/${req.file.filename}`;
     }
+    const updatedBy = {
+      account_id: res.locals.user.id,
+      updatedAt: new Date(),
+    };
     await Model.updateOne(
       {
         _id: req.params.id,
       },
-      req.body
+      {
+        ...req.body,
+        $push: { updatedBy: updatedBy },
+      }
     );
     req.flash("success", "Cập nhật thành công");
   } catch (error) {
