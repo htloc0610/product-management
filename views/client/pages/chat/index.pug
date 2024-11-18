@@ -1,0 +1,38 @@
+extends ../../layouts/default.pug
+
+block main 
+    .container.my-3 
+        .row
+            .col-12 
+
+        .row 
+            .col-12 
+                .chat 
+                    .inner-body 
+                        .inner-incoming 
+                            .inner-name Em yêu 
+                            .inner-content 
+                                | Anh ơi sang nhà em nha
+                        .inner-outgoing 
+                            .inner-content 
+                                | Ok e iu
+                        .inner-incoming 
+                            .inner-name Em yêu 
+                            .inner-content 
+                                | Nhanh nha anh
+                        .inner-outgoing 
+                            .inner-content 
+                                | Ok e iu
+                    .inner-foot 
+                    form(
+                        class="inner-form"
+                        action=""
+                    )
+                        input(
+                            type="text"
+                            placeholder="Nhập nội dung..."
+                            name="content"
+                        )
+                        button 
+                            i.fa-solid.fa-paper-plane
+            
