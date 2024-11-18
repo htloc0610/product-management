@@ -5,6 +5,7 @@ var path = require("path");
 var session = require("express-session");
 var flash = require("express-flash");
 var methodOverride = require("method-override");
+var moment = require("moment");
 require("dotenv").config();
 
 const router = require("./routers/client/index.router");
@@ -39,6 +40,7 @@ app.set("view engine", "pug");
 
 // App Locals Variables
 app.locals.prefixAdmin = systemConfig.prefixAdmin;
+app.locals.moment = moment;
 
 // Nhúng file tĩnh do backend không show -> phải có lệnh này
 app.use(express.static(`${__dirname}/public`));

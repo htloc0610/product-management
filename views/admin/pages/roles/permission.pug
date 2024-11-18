@@ -30,6 +30,7 @@ block main
                     each item in records
                         td(class = "text-center")
                             input(type="text" value = item.id)
+                //- Danh mục sản phẩm
                 tr
                     td(colspan="4")
                         b Danh mục sản phẩm
@@ -53,6 +54,103 @@ block main
                     each item in records
                         td(class = "text-center")
                             input(type="checkbox" checked=item.permissions.includes('products-category-delete'))
+                //- Danh sách sản phẩm
+                tr
+                    td(colspan="4")
+                        b Danh sách sản phẩm
+                tr(data-name = "products-view")
+                    td Xem 
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('products-view'))
+                tr(data-name = "products-create")
+                    td Thêm mới
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('products-create'))
+                tr(data-name = "products-edit")
+                    td Chỉnh sửa
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('products-edit'))
+                tr(data-name = "products-delete")
+                    td Xoá
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('products-delete'))
+
+                //- Nhóm quyền
+                tr
+                    td(colspan="4")
+                        b Nhóm quyền
+                tr(data-name = "roles-view")
+                    td Xem 
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('roles-view'))
+                tr(data-name = "roles-create")
+                    td Thêm mới
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('roles-create'))
+                tr(data-name = "roles-edit")
+                    td Chỉnh sửa
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('roles-edit'))
+                tr(data-name = "roles-delete")
+                    td Xoá
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('roles-delete'))
+                //- Phân quyền
+                tr
+                    td(colspan="4")
+                        b Nhóm quyền
+                tr(data-name = "roles-view")
+                    td Xem 
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('roles-view'))
+                tr(data-name = "roles-create")
+                    td Thêm mới
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('roles-create'))
+                tr(data-name = "roles-edit")
+                    td Chỉnh sửa
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('roles-edit'))
+                tr(data-name = "roles-delete")
+                    td Xoá
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('roles-delete'))
+                //- Tài khoản
+                tr
+                    td(colspan="4")
+                        b Tài khoản
+                tr(data-name = "accounts-view")
+                    td Xem 
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('accounts-view'))
+                tr(data-name = "accounts-create")
+                    td Thêm mới
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('accounts-create'))
+                tr(data-name = "accounts-edit")
+                    td Chỉnh sửa
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('accounts-edit'))
+                tr(data-name = "accounts-delete")
+                    td Xoá
+                    each item in records
+                        td(class = "text-center")
+                            input(type="checkbox" checked=item.permissions.includes('accounts-delete'))
     form(
         id = "form-change-permissions"
         action = `${prefixAdmin}/roles/permissions?_method=PATCH`
