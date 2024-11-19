@@ -115,6 +115,15 @@
   outline: none;
 }
 
+.chat .inner-name {
+  font-weight: bold;
+}
+
+.chat .inner-content {
+  font-style: italic;
+  color: red;
+}
+
 .chat .inner-form button {
   border-radius: 15px;
   border: 1px solid #fe5da3;
