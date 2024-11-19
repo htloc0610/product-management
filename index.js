@@ -6,6 +6,7 @@ var session = require("express-session");
 var flash = require("express-flash");
 var methodOverride = require("method-override");
 var moment = require("moment");
+const http = require("http");
 require("dotenv").config();
 
 const router = require("./routers/client/index.router");
@@ -19,6 +20,15 @@ database.connect();
 
 const app = express();
 const port = process.env.PORT;
+
+// Socket io
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+io.on("connection", (socket) => {
+  console.log("a user connected", socket.id);
+});
+// End socket
 
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -49,6 +59,6 @@ app.use(express.static(`${__dirname}/public`));
 router(app);
 routerAdmin(app);
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
